@@ -1,0 +1,5 @@
+{
+  "name": "Zopkit - AI Image Generator",
+  "description": "A powerful AI image generator and editor powered by Gemini 2.5 Flash. Create, edit, and style images with natural language prompts.",
+  "requestFramePermissions": []
+}
