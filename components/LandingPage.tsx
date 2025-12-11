@@ -37,8 +37,8 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLaunch }) => {
           </div>
           <div className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-400">
             <a href="#features" className="hover:text-cyan-400 transition-colors">Features</a>
-            <a href="#demo-view" className="hover:text-cyan-400 transition-colors">Live Demo</a>
-            <a href="#testimonials" className="hover:text-cyan-400 transition-colors">Creators</a>
+            <button onClick={onLaunch} className="hover:text-cyan-400 transition-colors">Live Demo</button>
+            <button onClick={onLaunch} className="hover:text-cyan-400 transition-colors">Creators</button>
           </div>
           <button 
             onClick={onLaunch}
@@ -259,7 +259,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLaunch }) => {
             </div>
             
             <div className="text-slate-500 text-sm">
-               Made with ❤️ by Deepak & team
+               Made with 💙 by Deepak & team
             </div>
 
             <div className="flex gap-6 text-slate-400 text-sm">

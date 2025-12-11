@@ -1,3 +1,4 @@
+
 import React, { useState, useRef, KeyboardEvent } from 'react';
 import { Button } from './Button';
 import { enhanceUserPrompt } from '../services/geminiService';
@@ -76,7 +77,7 @@ export const InputArea: React.FC<InputAreaProps> = ({ onSend, isGenerating }) =>
   };
 
   return (
-    <div className="p-4 bg-zopkit-dark/95 backdrop-blur-md border-t border-slate-800">
+    <div className="p-2 md:p-4 bg-zopkit-dark/95 backdrop-blur-md border-t border-slate-800">
       <div className="max-w-4xl mx-auto">
         
         {/* Image Preview Area */}
@@ -97,7 +98,7 @@ export const InputArea: React.FC<InputAreaProps> = ({ onSend, isGenerating }) =>
         )}
 
         <div 
-          className="flex items-end gap-3 bg-slate-800 p-2 rounded-xl transition-all"
+          className="flex items-end gap-2 md:gap-3 bg-slate-800 p-2 rounded-xl transition-all"
           style={{ boxShadow: 'none', border: 'none', outline: 'none' }}
         >
           
@@ -118,8 +119,8 @@ export const InputArea: React.FC<InputAreaProps> = ({ onSend, isGenerating }) =>
 
           <textarea
             ref={textareaRef}
-            className="flex-1 bg-transparent !border-none !ring-0 !outline-none !shadow-none text-slate-200 placeholder-slate-500 focus:!ring-0 focus:!outline-none focus:!border-none resize-none py-3 max-h-40 min-h-[44px]"
-            placeholder={previewImage ? "Describe changes (e.g., 'make it cyberpunk')..." : "Describe an image to generate..."}
+            className="flex-1 bg-transparent !border-none !ring-0 !outline-none !shadow-none text-slate-200 placeholder-slate-500 focus:!ring-0 focus:!outline-none focus:!border-none resize-none py-3 max-h-40 min-h-[44px] text-sm md:text-base"
+            placeholder={previewImage ? "Describe changes..." : "Message Zopkit..."}
             value={prompt}
             onChange={autoResize}
             onKeyDown={handleKeyDown}
@@ -144,9 +145,17 @@ export const InputArea: React.FC<InputAreaProps> = ({ onSend, isGenerating }) =>
             onClick={handleSubmit} 
             disabled={(!prompt.trim() && !previewImage) || isGenerating}
             isLoading={isGenerating}
-            className="rounded-lg mb-0.5 shadow-none"
+            className="rounded-lg mb-0.5 shadow-none px-3 md:px-4 flex items-center justify-center min-w-[44px]"
+            variant="primary"
           >
-            {previewImage ? 'Edit' : 'Generate'}
+             {/* Mobile: WhatsApp Style Send Icon */}
+             <span className="md:hidden flex items-center justify-center">
+               <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path></svg>
+             </span>
+             {/* Desktop: Full Text */}
+             <span className="hidden md:inline">
+               {previewImage ? 'Edit' : 'Generate'}
+             </span>
           </Button>
         </div>
       </div>
