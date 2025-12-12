@@ -145,11 +145,13 @@ export const InputArea: React.FC<InputAreaProps> = ({ onSend, isGenerating }) =>
             onClick={handleSubmit} 
             disabled={(!prompt.trim() && !previewImage) || isGenerating}
             isLoading={isGenerating}
-            className="rounded-lg mb-0.5 shadow-none px-3 md:px-4 flex items-center justify-center min-w-[44px]"
+            // Mobile: Circle button, w-10 h-10, no extra padding
+            // Desktop: Auto width, rounded-lg, standard padding
+            className="mb-0.5 shadow-none flex items-center justify-center md:rounded-lg md:px-4 md:w-auto w-10 h-10 rounded-full p-0 flex-shrink-0"
             variant="primary"
           >
              {/* Mobile: WhatsApp Style Send Icon */}
-             <span className="md:hidden flex items-center justify-center">
+             <span className="md:hidden flex items-center justify-center translate-x-0.5 translate-y-[1px]">
                <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path></svg>
              </span>
              {/* Desktop: Full Text */}

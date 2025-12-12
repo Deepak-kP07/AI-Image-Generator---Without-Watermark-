@@ -1,5 +1,6 @@
-
 import React, { useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 interface LandingPageProps {
   onLaunch: () => void;
@@ -7,17 +8,12 @@ interface LandingPageProps {
 
 export const LandingPage: React.FC<LandingPageProps> = ({ onLaunch }) => {
   useEffect(() => {
-    // Initialize AOS
-    // @ts-ignore
-    if (window.AOS) {
-      // @ts-ignore
-      window.AOS.init({
-        duration: 800,
-        once: true,
-        easing: 'ease-out-cubic',
-        offset: 50,
-      });
-    }
+    AOS.init({
+      duration: 800,
+      once: true,
+      easing: 'ease-out-cubic',
+      offset: 50,
+    });
   }, []);
 
   const scrollToDemo = () => {
@@ -259,7 +255,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLaunch }) => {
             </div>
             
             <div className="text-slate-500 text-sm">
-               Made with 💙 by Deepak & team
+               Made with ❤️ by Deepak & team
             </div>
 
             <div className="flex gap-6 text-slate-400 text-sm">

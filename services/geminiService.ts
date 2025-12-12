@@ -4,17 +4,11 @@ import { GenerationRequest, ModelType, GenerationMode } from "../types";
 import { SYSTEM_PROMPT_ENHANCER } from "../constants";
 
 // --- ENVIRONMENT SAFETY ---
+// Vite replaces process.env.Key with the string value at build time.
+// We access them directly so the replacement works.
 const getEnv = (key: string) => {
-  try {
-    // @ts-ignore
-    if (typeof process !== 'undefined' && process && process.env) {
-      // @ts-ignore
-      return process.env[key] || "";
-    }
-  } catch (e) {
-    console.warn(`Environment variable access failed for ${key}`, e);
-  }
-  return "";
+  // @ts-ignore
+  return process.env[key] || "";
 };
 
 // --- API KEYS ---
